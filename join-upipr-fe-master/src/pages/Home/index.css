@@ -1,3 +1,7 @@
+homepage{
+    height: 100vh;
+    width: 100%;
+}
 .search-input-container{
     width: 400px;
     padding: 0px 24px;
@@ -5,7 +9,7 @@
     height: fit-content;
     border-radius: 15px;
 
-    position: absolute;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,30 +77,32 @@
 .logo {
     text-align: center;
     margin-bottom: 35px;
-}
+}   
 
 .logo img {
     width: 200px;
 }
 
 .search-result{
-    width: 400px;
+    width: 448px;
     max-height: 350px;
-    padding-left: 24px;
-    padding-right: 24px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    /* padding-left: 24px;
+    padding-right: 24px; */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-top: -10px;
 
     overflow-y: scroll;
-    position: relative;
-    top: 40px;
+    overflow-x: hidden;
+
+
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    color: chartreuse;
+    color: #f2f2f2;
     background-color: #2D2F30;
 }
 
@@ -116,13 +122,67 @@
     
 }
 .search-result div{
-    width: 350px;
+    width: 100%;
     text-align: center;
     padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.search-options div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 5px;
+}
+.search-options div:nth-child(2){
+    text-align: right;
+    color: grey;
+    width: fit-content;
+    min-width: 100px;
+
+}
+.search-options div:nth-child(2) span{
+    text-align: right;
+    width: 90%;
+}
+
+.search-options div:nth-child(1) span:nth-child(1) {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.search-options div span:nth-child(2) {
+    font-weight: 300;
+    font-size: 10px;
+    color: grey;
+
 }
 
 .search-result div:hover {
     color: rgb(218, 118, 36);
     cursor: pointer;
-    border: goldenrod 1px solid;
+}
+
+@media only screen and (max-width: 650px){
+    .homepage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;    
+        align-items: center;
+        width: 100%;
+    }
+    .search-input-container{    
+        width: 250px;
+        position: relative;
+    }
+    .search-result{
+        width: 300px;
+        margin-top: -7px;
+        overflow-x: hidden;
+        max-height: 250px;
+
+    }
+  
+        
+
 }

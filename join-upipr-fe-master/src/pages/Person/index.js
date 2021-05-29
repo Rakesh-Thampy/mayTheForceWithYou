@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import StarwarsImage from '../../images/starWars_bg.png'
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import axios from 'axios'
 import LoadingImg from '../../images/loader.gif'
 
@@ -11,7 +11,7 @@ function Person() {
   const {id} = useParams()
   const [isLoading, setLoading] = React.useState(true)
   const [data, setData] = React.useState({})
-  
+  const history = useHistory()
 
   React.useEffect(()=>{
     fetchName(id)
@@ -29,7 +29,10 @@ function Person() {
 // starting loading page
   if (isLoading) {
     return(
-      <img src={LoadingImg} alt="loading" />
+      <div className="person">
+        <img src={LoadingImg} alt="loading" className = "person-loader"/>
+      </div>
+
     )
   }else{
     return (
@@ -37,16 +40,31 @@ function Person() {
         <div className = "person_card">
           <h1> {data.name}</h1>
           <div>
-            <h2> <span>Birth year:</span> {data.birth_year}</h2>
-            <h2> <span>Eye color:</span> {data.eye_color}</h2>
+            <div>
+              <h2> <span>Birth year:</span> {data.birth_year}</h2>
+            </div>
+            <div>
+              <h2> <span>Eye color:</span> {data.eye_color}</h2>
+            </div>           
           </div>
           <div>
-            <h2> <span>Gender:</span> {data.gender}</h2>
+            <div>
+             <h2> <span>Gender:</span> {data.gender}</h2>
+          </div>
+          <div>
             <h2> <span>Height: </span> {data.height}</h2>
           </div>
+          </div>
           <div>
-            <h2> <span>Mass:</span> {data.mass}</h2>
-            <h2> <span>Skin color:</span> {data.skin_color}</h2>
+            <div>
+              <h2> <span>Mass:</span> {data.mass}</h2>              
+            </div>
+            <div>
+              <h2> <span>Skin color:</span> {data.skin_color}</h2>
+            </div>
+          </div>
+          <div>
+              <button  data-testid = "btn" onClick = {()=> history.push("/") }> Go Back</button>
           </div>
 
         </div>

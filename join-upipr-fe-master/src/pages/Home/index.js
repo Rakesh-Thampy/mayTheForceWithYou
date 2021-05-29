@@ -57,8 +57,9 @@ function HomePage() {
                 break;
       case 38: setActive( prev => prev -1)
                 break;
-      case 13: let info = data[active].name
-                history.push(`/person/${info}`)
+      case 13: let info;
+      active > -1 ? info = data[active].name : info = null;
+      info? history.push(`/person/${info}`): history.push(`/lol`)
                 break;
       default:
         break;
@@ -67,7 +68,7 @@ function HomePage() {
 
 
   return (
-    <div>
+    <div className = "homepage">
       <div className="logo">
         <img src={logo} alt="Star Wars Logo" />
       </div>
@@ -78,10 +79,10 @@ function HomePage() {
           {data.length>0 && <div className = "search-input-cross" onClick = {handleCross}> X </div>}
           {isLoading? <div className = "search-input-loader"></div> : <div className = "search-img-wrapper"> <img src="https://image.flaticon.com/icons/png/512/49/49116.png" alt="search" className = "search-img" /></div> }
         </div>
-      {/*search result container starts here  */}
-        <div className = "search-result" style = {data.length > 0? {paddingTop: "20px"}: null}>
+        {/*search result container starts here  */}
+        <div className = "search-result" style = {data.length > 0? {paddingTop: "20px", paddingBottom: "20px"}: null}>
           {data?.map((item, i)=> ( 
-            <div style = {active === i? {backgroundColor:"yellow", color:"#110B0B"}: null} onClick = {()=> history.push(`/person/${item.name}`)}>{item.name}</div>
+            <div style = {active === i? {backgroundColor:"yellow", color:"#110B0B"}: null} onClick = {()=> history.push(`/person/${item.name}`)} className = "search-options"><div> <span>{item.name}</span> <span>{item.birth_year}</span></div> <div><span>{item.gender}</span></div></div>
           ))}
         </div>
       </div>

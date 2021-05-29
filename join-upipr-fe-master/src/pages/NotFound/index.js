@@ -1,10 +1,12 @@
 import React from 'react';
 import './index.css';
+import NotFoundImg from '../../images/404.png'
+import { useHistory } from 'react-router';
 
 function NotFound() {
+  const history = useHistory()
   return (
-    <div className="not-found">
-      <h2>This is not the page you are looking for</h2>
+    <div className="not-found" onClick = {()=>{history.push("/")}}>
     </div>
   );
 }

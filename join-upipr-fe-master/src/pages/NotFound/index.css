@@ -1,3 +1,13 @@
 .not-found {
     color: #ecd014;
+    /* background-color: rgb(12, 10, 10); */
+    background: url("../../images/404.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    cursor: pointer;
 }
+
+   
