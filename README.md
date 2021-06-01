@@ -1,5 +1,5 @@
-# Star Wars Assigment
-This repository is build as an assignment for interview process at UrbanPiper. It helps the users to search their favourite characters of Star Wars Universe.
+# Star Wars App
+The app helps the users to search their favourite characters of Star Wars Universe.
 
 
 ## Usage
