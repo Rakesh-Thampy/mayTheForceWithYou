@@ -2,23 +2,28 @@ import React from 'react';
 import './index.css';
 import StarwarsImage from '../../images/starWars_bg.png'
 import { useHistory, useParams } from 'react-router';
-import axios from 'axios'
-import LoadingImg from '../../images/loader.gif'
-
-
+import axios from 'axios';
+import LoadingImg from '../../images/loader.gif';
+import NotFound from "../../images/searchWrong.png"
 function Person() {
   // maintaing states
   const {id} = useParams()
   const [isLoading, setLoading] = React.useState(true)
   const [data, setData] = React.useState({})
   const history = useHistory()
+  
 
   React.useEffect(()=>{
+   
     fetchName(id)
     setTimeout(() => {
        setLoading(false)
+       
     }, 4000);
   },[id])
+
+
+
 
 //  fetch data accoding to name in url
   function fetchName(name){
@@ -26,6 +31,7 @@ function Person() {
     .then(res=> setData(res.data.results[0]))
     .catch((err)=> console.log(err))
   }
+  
 // starting loading page
   if (isLoading) {
     return(
@@ -33,6 +39,14 @@ function Person() {
         <img src={LoadingImg} alt="loading" className = "person-loader"/>
       </div>
 
+    )
+
+
+  } else if(!data){
+    return(
+      <div className = "person1">
+        <img src = {NotFound} alt= "not found" onClick = {()=> history.push("/")} style = {{cursor:"pointer"}} />
+    </div>
     )
   }else{
     return (

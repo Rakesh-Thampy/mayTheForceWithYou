@@ -3,19 +3,34 @@
     color: #ecd014;
     height: 100vh;
     font-family: 'Mate SC', serif;font-family: 'Mate SC', serif;
+    display: flex;
+    /* align-items: center;/ */
+    justify-content: center;
+    background: #1c1134e8;
+    width: 100%;
+
+}
+
+.person1 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: #1c113493;
+    width: 100%;
+
 }
 .person-loader{
     height: 100vh;
 }
 
 .person_card{
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-    margin:25px  auto;
+    margin:15px  auto;
     font-size: 17px;
+    height: fit-content;
 }
 .person_card div{
     display: flex;
@@ -27,9 +42,11 @@
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
-    border-radius: 2px;
-    min-width: 300px;
-    margin: 5px;
+    transform: skew(-20deg);
+    width: 300px;
+
+    margin: 15px;
+    font-size: 14px;
 }
 .person_card div h2{
     text-align: center;
@@ -44,7 +61,7 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    margin: auto;
+    margin: 20px auto;
 }
 
 .person_card div button:hover{
@@ -68,7 +85,21 @@
 }
 @media only screen and (max-width: 650px){
     .person{
-        height: 100%;
+        height: 100;
+        padding: 0;
+        width: 100%;
+    }
+    .person1 {
+        height: 100;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .person1 img{
+        width: 90%;
+        height: 90%;
     }
     .person-loader{
         height: 350px;
@@ -77,10 +108,20 @@
     .person_card{
         width: 90%;
         font-size: 10px;
+        margin: 0px auto;
+        justify-content: center;
+        align-items: center;
     }
     .person_card div{
         display: flex;
         flex-direction: column;
+    transform: skew(-0deg);
+
+    }
+    .person_card div div{
+        font-size: 10px;
+        width: 260px;
+
     }
     .person-footer img{
         width: 100%;
